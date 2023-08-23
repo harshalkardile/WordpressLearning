@@ -35,7 +35,7 @@
     background-color: rgba(0, 0, 0, 0.12);
   }
 
-  &__icon {
+  body &__icon {
     margin-right: 10px;
     font-size: 1.8rem;
     color: $darkOrange;
@@ -59,7 +59,7 @@
     border-bottom: 1px solid #ccc;
   }
 
-  &__close {
+  body &__close {
     position: absolute;
     top: 13px;
     right: 16px;

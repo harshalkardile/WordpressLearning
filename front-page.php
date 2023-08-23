@@ -54,7 +54,7 @@
             'posts_per_page' => 2,
           ));
           while($homepagePosts->have_posts()){
-            $homepagePosts->the_post();?>
+            $homepagePosts->the_post();?> 
           
             <div class="event-summary">
             <a class="event-summary__date event-summary__date--beige t-center" href="<?php the_permalink(); ?>">
@@ -71,53 +71,46 @@
                 } ?> <a href="<?php the_permalink(); ?>" class="nu gray">Read more</a></p>
             </div>
           </div>
-            
-
          <? } wp_reset_postdata();
           ?>
-
-          
-          
           <p class="t-center no-margin"><a href="<?php echo site_url('/blog')?>" class="btn btn--yellow">View All Blog Posts</a></p>
         </div>
       </div>
     </div>
  
     <div class="hero-slider">
-      <div data-glide-el="track" class="glide__track">
+        <div data-glide-el="track" class="glide__track">
         <div class="glide__slides">
-          <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri("/images/bus.jpg") ?>)">
-            <div class="hero-slider__interior container">
-              <div class="hero-slider__overlay">
-                <h2 class="headline headline--medium t-center">Free Transportation</h2>
-                <p class="t-center">All students have free unlimited bus fare.</p>
-                <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
-              </div>
+      <?php
+       $homeTestimonial = new WP_Query(array(
+        'posts_per_page'=> -1,
+        'post_type'=> 'testimonial',
+        'orderby'=> 'title',
+        'order'=>'ASC'
+        )
+       );
+       while($homeTestimonial->have_posts()){
+        $homeTestimonial->the_post();
+        $image = get_field('image_background');
+        
+      ?>
+          <div class="hero-slider__slide" style="background-image: url(<?php echo  $image['url']; ?>);">
+          <div class="hero-slider__interior container">
+            <div class="hero-slider__overlay">
+              <h2 class="headline headline--medium t-center">
+              <?php the_field('testimonial_title'); ?></h2>
+              <p class="t-center"><?php the_field('testimonial_subtitle'); ?></p>
+              <p class="t-center no-margin"><a href="<?php echo get_permalink(); ?>" class="btn btn--blue">Learn more</a></p>
             </div>
           </div>
-          <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri("/images/apples.jpg") ?>)">
-            <div class="hero-slider__interior container">
-              <div class="hero-slider__overlay">
-                <h2 class="headline headline--medium t-center">An Apple a Day</h2>
-                <p class="t-center">Our dentistry program recommends eating apples.</p>
-                <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri("/images/bread.jpg") ?>)">
-            <div class="hero-slider__interior container">
-              <div class="hero-slider__overlay">
-                <h2 class="headline headline--medium t-center">Free Food</h2>
-                <p class="t-center">Fictional University offers lunch plans for those in need.</p>
-                <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
-              </div>
-            </div>
-          </div>
+        </div>
+        <?php
+       }
+      ?>
         </div>
         <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]"></div>
       </div>
     </div>
- 
     <?php
     get_footer();
 ?>

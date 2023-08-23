@@ -800,7 +800,7 @@ body.login {
     display: none;
   }
 }
-.site-header__menu-trigger {
+body .site-header__menu-trigger {
   color: #fff;
   cursor: pointer;
   font-size: 1.2rem;
@@ -810,13 +810,13 @@ body.login {
   right: 46px;
 }
 @media (min-width: 530px) {
-  .site-header__menu-trigger {
+  body .site-header__menu-trigger {
     top: 5px;
     font-size: 1.4rem;
   }
 }
 @media (min-width: 960px) {
-  .site-header__menu-trigger {
+  body .site-header__menu-trigger {
     display: none;
   }
 }
@@ -1156,13 +1156,13 @@ body.admin-bar .search-overlay {
 .search-overlay__top {
   background-color: rgba(0, 0, 0, 0.12);
 }
-.search-overlay__icon {
+body .search-overlay__icon {
   margin-right: 10px;
   font-size: 1.8rem;
   color: #F95738;
 }
 @media (min-width: 960px) {
-  .search-overlay__icon {
+  body .search-overlay__icon {
     font-size: 2.5rem;
   }
 }
@@ -1179,7 +1179,7 @@ body.admin-bar .search-overlay {
   padding: 15px 0;
   border-bottom: 1px solid #ccc;
 }
-.search-overlay__close {
+body .search-overlay__close {
   position: absolute;
   top: 13px;
   right: 16px;
@@ -1191,13 +1191,13 @@ body.admin-bar .search-overlay {
   line-height: 0.7;
 }
 @media (min-width: 530px) {
-  .search-overlay__close {
+  body .search-overlay__close {
     top: 18px;
     font-size: 2.1rem;
   }
 }
 @media (min-width: 960px) {
-  .search-overlay__close {
+  body .search-overlay__close {
     top: 26px;
     font-size: 2.8rem;
   }
